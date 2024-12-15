@@ -1,6 +1,0 @@
-nodejs:
-  app_directory: /home/adawazuo/test.adawat360.com/ # Replace with your cPanel app directory
-  start_script: npm start # Use npm start instead of directly specifying a script
-  node_version: 20.17.0
-commands:
-  - npm install
