@@ -20,13 +20,6 @@ jobs:
         run: |
           npm install
 
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{secrets.FTP_SERVER}}
-          username: ${{secrets.FTP_USERNAME}}
-          password: ${{ secrets.FTP_PASSWORD}}
-
       - name: Restart Node.js App on cPanel
         run: |
           curl -X POST \
@@ -37,3 +30,10 @@ jobs:
           -d "cpanel_jsonapi_module=Nodejs" \
           -d "cpanel_jsonapi_func=start" \
           -d "app_directory=/home/adawazuo/test.adawat360.com/"
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{secrets.FTP_SERVER}}
+          username: ${{secrets.FTP_USERNAME}}
+          password: ${{ secrets.FTP_PASSWORD}}
