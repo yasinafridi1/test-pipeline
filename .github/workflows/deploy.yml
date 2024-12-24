@@ -19,7 +19,16 @@ jobs:
       - name: 🔨 Build Project
         run: |
           npm install
-
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: 🔨 Build Project with ftp
+        run: |
+          npm ci
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
