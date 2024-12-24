@@ -19,7 +19,7 @@ jobs:
       - name: 🔨 Build Project
         run: |
           cd /home/adawazuo/test.adawat360.com
-          npm install
+          npm i
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
